@@ -1,0 +1,66 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "yudgithub"
+		},
+		"Test_stdwseadev01_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Test_stdwseadev01'"
+		},
+		"Test_PROD_stdwseadev01_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Test_PROD_stdwseadev01'"
+		},
+		"Test_stdwseadev01_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://stdwseadev01.dfs.core.windows.net"
+		},
+		"Test_PROD_stdwseadev01_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://stdwseaprd01.dfs.core.windows.net"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/Test_stdwseadev01')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('Test_stdwseadev01_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('Test_stdwseadev01_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Test_PROD_stdwseadev01')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('Test_PROD_stdwseadev01_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('Test_PROD_stdwseadev01_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
