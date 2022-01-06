@@ -11,17 +11,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'Test_stdwseadev01'"
 		},
-		"Test_PROD_stdwseadev01_accountKey": {
+		"Test_PROD_stdwseadev01_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'Test_PROD_stdwseadev01'"
+			"metadata": "Secure string for 'connectionString' of 'Test_PROD_stdwseadev01'"
 		},
 		"Test_stdwseadev01_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://stdwseadev01.dfs.core.windows.net"
-		},
-		"Test_PROD_stdwseadev01_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://stdwseaprd01.dfs.core.windows.net"
 		},
 		"containerUri": {
 			"type": "string",
@@ -53,14 +49,11 @@
 					"Test_stdwseadev01_accountKey": {
 						"value": "[parameters('Test_stdwseadev01_accountKey')]"
 					},
-					"Test_PROD_stdwseadev01_accountKey": {
-						"value": "[parameters('Test_PROD_stdwseadev01_accountKey')]"
+					"Test_PROD_stdwseadev01_connectionString": {
+						"value": "[parameters('Test_PROD_stdwseadev01_connectionString')]"
 					},
 					"Test_stdwseadev01_properties_typeProperties_url": {
 						"value": "[parameters('Test_stdwseadev01_properties_typeProperties_url')]"
-					},
-					"Test_PROD_stdwseadev01_properties_typeProperties_url": {
-						"value": "[parameters('Test_PROD_stdwseadev01_properties_typeProperties_url')]"
 					}
 				}
 			},
