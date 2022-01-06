@@ -8,9 +8,6 @@
 		"Test_stdwseadev01_accountKey": {
 			"value": ""
 		},
-		"Test_PROD_stdwseadev01_connectionString": {
-			"value": ""
-		},
 		"Test_stdwseadev01_properties_typeProperties_url": {
 			"value": "https://stdwseadev01.dfs.core.windows.net"
 		}
